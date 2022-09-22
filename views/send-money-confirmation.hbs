@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+</head>
+
+<body>
+    <div>
+        <form method="post" action="/profile/send-money/confirmation/userId">
+            <h1>You're about to send money to {{receiver.name}} {{receiver.lastName}} with the username:
+                '{{receiver.username}}' please select the
+                accounts
+            </h1>
+            <span>
+                <h2>Your accounts:</h2>
+            </span>
+            <span>
+                <select name="accountSending">
+                    {{#each foundAccount}}
+                    <option value="{{this._id}}">
+                        <h2>{{this.accountName}}</h2>
+                    </option>
+                    {{/each}}
+                </select>
+            </span>
+            <span>
+                <h2>{{receiver.name}}'s accounts:</h2>
+            </span>
+            <span>
+                <select name="accountReceiving">
+                    {{#each foundReceiverAccount}}
+                    <option value="{{this._id}}">
+                        <h2>{{this.accountName}}</h2>
+                    </option>
+                    {{/each}}
+                </select>
+            </span>
+
+    </div>
+
+    <label>Amount</label>
+    <input type="number" name="amount">
+    <button type="submit">Send money</button>
+    </form>
+</body>
+
+</html>

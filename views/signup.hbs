@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SING UP</title>
+</head>
+
+<body>
+    <h1>Signup</h1>
+    <form method="post" action="/signup">
+        <div>
+            <label>Fist Name</label>
+            <input type="'text" name="name">
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="'text" name="lastName">
+        </div>
+        <div>
+            <label>Username</label>
+            <input type="'text" name="username">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password">
+        </div>
+        <div>
+            <button type="submit">Signup</button>
+        </div>
+        {{#if errorMessage}}
+        <div>
+            <p style="color: red;">{{errorMessage}}</p>
+        </div>
+        {{/if}}
+    </form>
+</body>
+
+</html>

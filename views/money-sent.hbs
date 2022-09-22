@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Sent!</title>
+</head>
+
+<body>
+    <h1>The money has been sent!</h1>
+    {{#if savedTransaction}}
+    <h2>You sent {{foundUser.name}} {{foundUser.lastName}} ${{this.myBalance}}</h2>
+    <h2>Confirmation number: {{this.savedTransaction._id}}</h2>
+    {{/if}}
+    <a href="/profile">Back to you profile</a>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG IN</title>
+</head>
+
+<body>
+    <h1>OPEN ACCOUNT</h1>
+    <form method="post" action="/profile/open-account">
+        <div>
+            <label>Account nickname</label>
+            <input type="text" name="accountName">
+        </div>
+        <div>
+            <label>Balance</label>
+            <input type="number" name="balance">
+        </div>
+        <div>
+            <label>Currency</label>
+            <input type="text" name="currency">
+        </div>
+        <div>
+            <button type="submit">Open account now!</button>
+        </div>
+        </div>
+        {{#if errorMessage}}
+        <div>
+            <p style="color: red;">{{errorMessage}}</p>
+        </div>
+        {{/if}}
+    </form>
+</body>
+</body>
+
+</html>

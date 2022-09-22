@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+</head>
+
+<body>
+    <h1>This account</h1>
+    <h2>{{userSending.name}} {{userSending.lastName}}</h2>
+    <h2>Account name: {{this.accountName}}</h2>
+    <h2>Available balance: ${{this.balance}}</h2>
+    <h3>Transactions</h3>
+    {{#if transactionArray}}
+    {{#each transactionArray}}
+    <h2>
+        {{this.userSending.name}} {{this.userSending.lastName}} sent ${{this.amount}} to
+        {{this.userReceiving.name}} {{this.userReceiving.lastName}}.
+    </h2>
+    {{/each}}
+    {{else}}
+    <h4>You have no recent transactions, if you want to send money <a href='/profile/send-money'>Click here</a></h4>
+    {{/if}}
+</body>
+
+</html>

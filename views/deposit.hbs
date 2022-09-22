@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+</head>
+
+<body>
+    <h1>Make a deposit</h1>
+    <form method="post" action="/profile/deposit">
+        <div>
+            <h2>Select an account</h2>
+            <select name="account">
+                {{#each foundAccount}}
+                <option value="{{this._id}}">
+                    <h2>{{this.accountName}}</h2>
+                </option>
+                {{/each}}
+            </select>
+        </div>
+        <div>
+            <div>
+                <label>How much do you want to deposit?</label>
+            </div>
+            <input type="number" name="deposit">
+        </div>
+        <div>
+            <button type="submit">Transfer balance</button>
+        </div>
+    </form>
+</body>
+
+</html>
