@@ -10,15 +10,21 @@
 
 <body>
     <h1>This account</h1>
-    <h2>{{userSending.name}} {{userSending.lastName}}</h2>
-    <h2>Account name: {{this.accountName}}</h2>
-    <h2>Available balance: ${{this.balance}}</h2>
+    <h2 title="accountName">Account name: {{accountName}}</h2>
+    <h2 title="amount">Available balance: ${{balance}}</h2>
+    <div>
+        <a href="/profile">Go to profile</a>
+    </div>
+    <a href="/profile/accounts/{{_id}}/delete">Delete Account</a>
+    {{#if errorMessage}}
+    <p style="color: red">You can't delete an account with money on it</p>
+    {{/if}}
     <h3>Transactions</h3>
     {{#if transactionArray}}
     {{#each transactionArray}}
     <h2>
-        {{this.userSending.name}} {{this.userSending.lastName}} sent ${{this.amount}} to
-        {{this.userReceiving.name}} {{this.userReceiving.lastName}}.
+        {{this.sendingAccount.userId.name}} {{this.sendingAccount.userId.lastName}} sent ${{this.amount}} to
+        {{this.receivingAccount.userId.name}} {{this.receivingAccount.userId.lastName}}.
     </h2>
     {{/each}}
     {{else}}

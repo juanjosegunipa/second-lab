@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can't send money</title>
+</head>
+
+<body>
+    {{#if BalanceErrorMessage}}
+    <p style="color: red">Insufficient founds on the selected account, please <a href="/profile/send-money">try
+            again</a> or make a <a href="/profile/deposit">new deposit</a></p>
+    {{/if}}
+    <a href="/profile">Go to profile</a>
+</body>
+
+</html>
