@@ -51,4 +51,4 @@ const profileRoutes = require('./routes/profile.routes');
 app.use('/', profileRoutes);
 
 
-app.listen(3000, () => console.log('Yo the server is running'));
+app.listen(process.env.PORT, () => console.log('Yo the server is running'));
