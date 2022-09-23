@@ -5,22 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/{{style}}">
     <title>Profile</title>
 </head>
 
 <body>
-    <h1>Hello {{this.name}}!</h1>
-    <a href="/profile/deposit">Make a deposit</a>
-    <a href="/profile/open-account">Open an account</a>
-    <a href="/profile/send-money">Send Money</a>
-    <a href="/logout">LOG OUT</a>
-    <h2>Accounts</h2>
+    <header class="logo">
+        <h1>PAYMENTAPP</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/profile/deposit">Make a deposit</a></li>
+                <li><a href="/profile/open-account">Open an account</a></li>
+                <li><a href="/profile/send-money">Send Money</a></li>
+            </ul>
+        </nav>
+        <a class="logout" href="/logout">LOG OUT</a>
+    </header>
+    <h2>{{this.name}}'s accounts</h2>
     {{#if myNewAccountArray}}
     {{#each myNewAccountArray}}
-    <div>
+    <table class="account-table">
+        <tr>
+            <th>Account</th>
+            <th>Balance</th>
+        </tr>
+        <tr>
+            <td><a href='/profile/accounts/{{this._id}}'>{{this.accountName}} </a></td>
+            <td>{{this.currency}}{{this.balance}}</td>
+        </tr>
+        {{!--
         <p>Account name: <a href='/profile/accounts/{{this._id}}'>{{this.accountName}} </a> Balance:
-            {{this.currency}}{{this.balance}}</p>
-    </div>
+            {{this.currency}}{{this.balance}}</p> --}}
+    </table>
     {{/each}}
     {{else}}
     <p>You don't have an account with us. <a href='/profile/open-account'>Open one!</a></p>

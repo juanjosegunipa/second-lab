@@ -5,37 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/{{style}}">
     <title>SING UP</title>
 </head>
 
 <body>
-    <h1>Signup</h1>
-    <form method="post" action="/signup">
-        <div>
-            <label>Fist Name</label>
-            <input type="'text" name="name">
-        </div>
-        <div>
-            <label>Last Name</label>
-            <input type="'text" name="lastName">
-        </div>
-        <div>
-            <label>Username</label>
-            <input type="'text" name="username">
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password">
-        </div>
-        <div>
-            <button type="submit">Signup</button>
-        </div>
-        {{#if errorMessage}}
-        <div>
-            <p style="color: red;">{{errorMessage}}</p>
-        </div>
-        {{/if}}
-    </form>
+    <header class="logo">
+        <h1>PAYMENTAPP</h1>
+    </header>
+    <div class="signup-wrapper">
+        <form method="post" action="/signup" class="form">
+            <h2>Sign Up</h2>
+            <div class="input-group">
+                <label>Fist Name</label>
+                <input type="'text" name="name">
+            </div>
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="'text" name="lastName">
+            </div>
+            <div class="input-group">
+                <label>Username</label>
+                <input type="'text" name="username">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password">
+            </div>
+            <div>
+                <button type="submit">Sign Up</button>
+            </div>
+            {{#if errorMessage}}
+            <div>
+                <p style="color: red;">{{errorMessage}}</p>
+            </div>
+            {{/if}}
+        </form>
+    </div>
 </body>
 
 </html>

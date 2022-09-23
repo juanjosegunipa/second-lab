@@ -5,33 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/{{style}}">
     <title>Deposit</title>
 </head>
 
 <body>
-    <h1>Make a deposit</h1>
-    <a href="/profile">Go to profile</a>
-    <form method="post" action="/profile/deposit">
-        <div>
-            <h2>Select an account</h2>
-            <select name="account">
-                {{#each foundAccount}}
-                <option value="{{this._id}}">
-                    <h2>{{this.accountName}}</h2>
-                </option>
-                {{/each}}
-            </select>
-        </div>
-        <div>
+    <header class="logo">
+        <h1>PAYMENTAPP</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/profile">Go to profile</a></li>
+                <li><a href="/profile/deposit">Make a deposit</a></li>
+                <li><a href="/profile/open-account">Open an account</a></li>
+                <li><a href="/profile/send-money">Send Money</a></li>
+            </ul>
+        </nav>
+        <a class="logout" href="/logout">LOG OUT</a>
+    </header>
+    <div class="deposit-wrapper">
+        <form method="post" action="/profile/deposit" class="form">
+            <h2>Make a deposit</h2>
             <div>
-                <label>How much do you want to deposit?</label>
+                <h2>Select an account</h2>
+                <select name="account">
+                    {{#each foundAccount}}
+                    <option value="{{this._id}}" class="input-group">
+                        <h2>{{this.accountName}}</h2>
+                    </option>
+                    {{/each}}
+                </select>
             </div>
-            <input type="number" name="deposit">
-        </div>
-        <div>
-            <button type="submit">Transfer balance</button>
-        </div>
-    </form>
+            <div class="input-group">
+                <div>
+                    <label>How much do you want to deposit?</label>
+                    <input type="number" name="deposit">
+                </div>
+                <div>
+                    <button type="submit" class="submit-btn">Transfer balance</button>
+                </div>
+            </div>
+        </form>
+    </div>
     {{#if errorMessage}}
     <p style="color: red">You can't deposit a negative amount</p>
     {{/if}}

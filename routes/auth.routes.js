@@ -8,11 +8,15 @@ const { Router } = require('express');
 
 
 router.get('/', (req, res, next) => {
-    res.render('index.hbs');
+    res.render('index.hbs', {
+        style: 'index.css'
+    });
 });
 
 router.get('/signup', (req, res, next) => {
-    res.render('signup.hbs');
+    res.render('signup.hbs', {
+        style: 'signup.css'
+    });
 });
 
 router.post('/signup', (req, res, next) => {
@@ -35,12 +39,14 @@ router.post('/signup', (req, res, next) => {
             res.redirect('/login')
         })
         .catch(err => {
-            res.render('signup.hbs', { errorMessage: 'Username already exists' });
+            res.render('signup.hbs', { errorMessage: 'Username already exists', style: 'signup.css' });
         })
 });
 
 router.get('/login', isNotAuthenticated, (req, res, next) => {
-    res.render('login.hbs')
+    res.render('login.hbs', {
+        style: 'login.css'
+    })
 });
 
 router.post('/login', (req, res, next) => {
@@ -52,14 +58,14 @@ router.post('/login', (req, res, next) => {
     })
         .then(foundUser => {
             if (!foundUser) {
-                res.render('login.hbs', { errorMessage: 'Username or password incorrect' });
+                res.render('login.hbs', { errorMessage: 'Username or password incorrect', style: 'login.css' });
                 return;
             }
 
             const validPassword = bcryptjs.compareSync(myPassword, foundUser.password)
 
             if (!validPassword) {
-                res.render('login.hbs', { errorMessage: 'Username or password incorrect' });
+                res.render('login.hbs', { errorMessage: 'Username or password incorrect', style: 'login.css' });
                 return;
             }
 
@@ -83,7 +89,8 @@ router.get('/profile', isAuthenticated, (req, res, next) => {
             res.render('profile.hbs', {
                 name: foundUser.name,
                 balance: foundUser.balance,
-                myNewAccountArray: foundUser.accounts
+                myNewAccountArray: foundUser.accounts,
+                style: 'profile.css'
             })
         })
         .catch(err => res.send(err))

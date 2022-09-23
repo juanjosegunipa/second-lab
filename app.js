@@ -20,6 +20,8 @@ app.set('views', __dirname + '/views')
 app.set('view engine', hbs);
 app.set('trust proxy', 1)
 
+
+app.use(express.static('public'));
 app.use(
     session({
         secret: "keyboarcat",
@@ -29,7 +31,7 @@ app.use(
             sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
             secure: process.env.NODE_ENV === 'production',
             httpOnly: true,
-            maxAge: 1200000
+            maxAge: 1200000000000
         }, // ADDED code below !!!
         store: MongoStore.create({
             mongoUrl: process.env.MONGODB_URI || 'mongodb://127.0.0.1/money-app-project-2'

@@ -12,7 +12,7 @@ router.get('/profile/deposit', (req, res, next) => {
         .populate('accounts')
         .then(foundAccount => {
             console.log(foundAccount)
-            res.render('deposit.hbs', { foundAccount: foundAccount.accounts })
+            res.render('deposit.hbs', { foundAccount: foundAccount.accounts, style: 'deposit.css' })
         })
 })
 
@@ -43,7 +43,7 @@ router.post('/profile/deposit', (req, res, next) => {
 })
 
 router.get('/profile/open-account', (req, res, next) => {
-    res.render('open-account.hbs')
+    res.render('open-account.hbs', { style: 'open-account.css' })
 })
 
 router.post('/profile/open-account', (req, res, next) => {
